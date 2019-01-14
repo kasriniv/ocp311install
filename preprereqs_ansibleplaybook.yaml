@@ -1,0 +1,7 @@
+- name: Execute the command in remote shell; stdout goes to the specified file on the remote.
+  shell: somescript.sh >> somelog.txt
+
+- name: Change the working directory to somedir/ before executing the command.
+  shell: somescript.sh >> somelog.txt
+  args:
+    chdir: somedir/
