@@ -1,7 +1,26 @@
-- name: Execute the command in remote shell; stdout goes to the specified file on the remote.
-  shell: somescript.sh >> somelog.txt
+- name: for all preprereqs
+  hosts: ec2-BLAHMASTER.compute-1.amazonaws.com, ec2-BLAHNODE.compute-1.amazonaws.com
+  tasks:
+   - name: Execute the command in remote shell; stdout goes to the specified file on the remote.
+     shell: echo 'Hi there' >what1
 
-- name: Change the working directory to somedir/ before executing the command.
-  shell: somescript.sh >> somelog.txt
-  args:
-    chdir: somedir/
+   - name: install opneshift ansible playbooks
+     shell: yum install -d1 -y openshift-ansible-playbooks
+
+   - name: submanager repos enable
+     shell: subscription-manager repos --enable=rhel-7-server-rpms --enable=rhel-7-server-extras-rpms --enable=rhel-7-fast-datapath-rpms --enable=rhel-7-server-ansible-2.6-rpms --enable=rh-gluster-3-client-for-rhel-7-server-rpms --enable=rhel-7-server-ose-3.11-rpms
+
+   - name: yum more
+     shell: yum install -d1 -y yum-utils wget git net-tools bind-utils iptables-services bridge-utils bash-completion nfs-utils dstat mlocate screen
+
+   - name: yum more
+     shell: yum install -d1 -y atomic-openshift-clients
+
+   - name: yum docker
+     shell: yum install -d1 -y docker
+
+   - name: install gluster packages
+     shell: yum install -d1 -y cns-deploy heketi-client
+
+   - name: install opneshift ansible playbooks
+     shell: yum install -d1 -y openshift-ansible-playbooks
