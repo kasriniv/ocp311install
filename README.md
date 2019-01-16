@@ -5,4 +5,4 @@
 
 #install pre-preqs
 
-ansible-playbook -i ansiblehosts preprereqs.yaml
+ansible-playbook -i ansiblehosts preprereqs_ansibleplaybook.yaml 
