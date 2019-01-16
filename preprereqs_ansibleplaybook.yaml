@@ -4,9 +4,6 @@
    - name: Execute the command in remote shell; stdout goes to the specified file on the remote.
      shell: echo 'Hi there' >what1
 
-   - name: install opneshift ansible playbooks
-     shell: yum install -d1 -y openshift-ansible-playbooks
-
    - name: submanager repos enable
      shell: subscription-manager repos --enable=rhel-7-server-rpms --enable=rhel-7-server-extras-rpms --enable=rhel-7-fast-datapath-rpms --enable=rhel-7-server-ansible-2.6-rpms --enable=rh-gluster-3-client-for-rhel-7-server-rpms --enable=rhel-7-server-ose-3.11-rpms
 
@@ -22,5 +19,5 @@
    - name: install gluster packages
      shell: yum install -d1 -y cns-deploy heketi-client
 
-   - name: install opneshift ansible playbooks
+   - name: install openshift ansible playbooks
      shell: yum install -d1 -y openshift-ansible-playbooks
